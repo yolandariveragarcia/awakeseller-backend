@@ -1,0 +1,43 @@
+server:
+  error:
+    include-message: always
+  ssl:
+    enabled: false
+    key-store-type: PKCS12
+    key-store: classpath:awakeseller.p12
+    key-store-password: awakeseller
+    key-alias: awakeseller
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/awakeseller
+    username: awakeseller
+    password: awakeseller
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+  security:
+    oauth2:
+      client:
+        registration:
+          etsy:
+            client-name: Awake Seller
+            client-id: ETSY_ID
+            client-secret: ETSY_SECRET
+            authorization-grant-type: authorization_code
+            client-authentication-method: none
+            scope: # https://developers.etsy.com/documentation/essentials/authentication/#scopes
+            - listings_r
+            - shops_r
+            - profile_r
+            - email_r
+            redirect-uri: "{baseUrl}/redirect"
+        provider:
+          etsy:
+            token-uri: https://api.etsy.com/v3/public/oauth/token
+            authorization-uri: https://www.etsy.com/oauth/connect
+
