@@ -1,6 +1,6 @@
 # Introducción
 
-[Pendiente]
+Este proyecto es una API REST de backend de la aplicación AwakeSeller. El objetivo principal de este proyecto es proporcionar a los vendedores una aplicación que les ayude a mejorar sus ventas en Etsy. 
 
 ## Requisitos
 
